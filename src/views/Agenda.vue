@@ -1,13 +1,23 @@
 <template>
   <v-layout wrap row>
-    <h1 v-if="!timetable.length">Sorry, no scheduled visits :(</h1>
-    <visit v-for="visit in timetable" :details="visit" :key="visit.id"/>
+    <h1 v-if="!timetable.length" v-text="$t('agenda.no_offers')"></h1>
+
+    <template v-for="(visit, index) in timetable">
+      <v-flex xs2 my-2 :key="`date-${index}`">
+        <template v-if="visit">
+          <div mb-1 class="headline">{{ getNumericDay(visit.startDate.date) }}</div>
+          <div>{{ getShortWeekday(visit.startDate.date) }}</div>
+        </template>
+      </v-flex>
+      <visit xs10 :details="visit" :key="`visit-${index}`" />
+    </template>
   </v-layout>
 </template>
 
 <script>
 import Visit from '../components/Visit.vue';
 import Api from '../functions/api';
+import DateParser from '../functions/DateParser';
 
 export default {
 
@@ -20,6 +30,9 @@ export default {
     return {
       timetable: [],
     };
+  },
+  methods: {
+    ...DateParser,
   },
   async created() {
     this.timetable = await Api.getTimetable();
