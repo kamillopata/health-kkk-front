@@ -1,17 +1,17 @@
 <template>
   <v-flex xs10 sm11 my-2>
     <v-card>
-      <v-card-title>
-        <div>
-          <div class="headline">
-            {{ details.examination.name }}
-          </div>
-          <div class="font-weight-light">
-            {{ details.duration }}
-          </div>
+      <v-card-text>
+        <div class="headline">
+          {{ details.examination.name }}
         </div>
-      </v-card-title>
-      <v-card-text v-if="false">{{ details.examination.description }}</v-card-text>
+        <div class="font-weight-light">
+          {{ details.duration }}
+        </div>
+        <div :class="{ 'text-truncate': !focus }" @click="$emit('focus')">
+          {{ details.examination.description }}
+        </div>
+      </v-card-text>
       <v-card-actions>
         <v-btn :icon="true"><v-icon>event</v-icon></v-btn>
         <v-btn>{{ $t('visit.mark_as_dome') }}</v-btn>
@@ -34,6 +34,10 @@ export default {
       required: true,
       type: Object,
     },
+    focus: {
+      required: true,
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -53,4 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .text-truncate {
+    transition: height 3s ease-in;
+  }
 </style>

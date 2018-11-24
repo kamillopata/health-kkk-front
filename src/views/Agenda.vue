@@ -7,7 +7,12 @@
         <div mb-1 class="headline">{{ getNumericDay(visit.startDate.date) }}</div>
         <div>{{ getShortWeekday(visit.startDate.date) }}</div>
       </v-flex>
-      <visit :details="visit" :key="`visit-${visit.id}`" />
+      <visit
+        :details="visit"
+        :key="`visit-${visit.id}`"
+        @focus="focusedTimetable = visit.id"
+        :focus="focusedTimetable === visit.id"
+      />
     </template>
 
     <v-fab-transition>
@@ -34,6 +39,7 @@ export default {
     return {
       timetables: [],
       profiles: [],
+      focusedTimetable: null,
     };
   },
   methods: {
