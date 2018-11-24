@@ -21,8 +21,8 @@ export default {
       timetable: [],
     };
   },
-  created() {
-    this.timetable = Api.getTimetable();
+  async created() {
+    this.timetable = await Api.getTimetable();
   },
 };
 </script>
