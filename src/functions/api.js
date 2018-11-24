@@ -5,8 +5,12 @@ const download = async (path, params) => {
 };
 
 export default {
-  async getTimetable() {
+  async getTimetables() {
     const result = await download('timetables');
     return result.timetables;
+  },
+  async getProfiles() {
+    const result = await download('profiles');
+    return result.profiles;
   },
 };
