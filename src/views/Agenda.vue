@@ -2,12 +2,12 @@
   <v-layout wrap row>
     <h1 v-if="!timetable.length" v-text="$t('agenda.no_offers')"></h1>
 
-    <template v-for="(visit, index) in timetable">
-      <v-flex xs2 sm1 my-2 :key="`date-${index}`">
+    <template v-for="visit in timetable">
+      <v-flex xs2 sm1 my-2 :key="`date-${visit.id}`">
         <div mb-1 class="headline">{{ getNumericDay(visit.startDate.date) }}</div>
         <div>{{ getShortWeekday(visit.startDate.date) }}</div>
       </v-flex>
-      <visit :details="visit" :key="`visit-${index}`" />
+      <visit :details="visit" :key="`visit-${visit.id}`" />
     </template>
   </v-layout>
 </template>
