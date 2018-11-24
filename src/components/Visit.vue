@@ -24,12 +24,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
 
   name: 'Visit',
   props: {
+    profile: {
+      required: true,
+      type: Object,
+    },
     details: {
       required: true,
       type: Object,
@@ -45,11 +47,8 @@ export default {
     };
   },
   computed: {
-    ...mapState([
-      'user',
-    ]),
     searchClinic() {
-      const query = `${this.details.examination.name}+${this.user.city}`;
+      const query = `${this.details.examination.name}+${this.profile.city}`;
       return `https://google.com/search?q=${encodeURIComponent(query)}`;
     },
   },

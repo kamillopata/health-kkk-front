@@ -1,14 +1,15 @@
 <template>
   <v-layout wrap row>
-    <h1 v-if="!timetables.length" v-text="$t('agenda.no_offers')"></h1>
+    <h1 v-if="!timetable.length" v-text="$t('agenda.no_offers')"></h1>
 
-    <template v-for="visit in timetables">
+    <template v-for="visit in timetable">
       <v-flex xs2 sm1 my-3 :key="`date-${visit.id}`">
-        <div mb-1 class="headline">{{ getNumericDay(visit.startDate.date) }}</div>
-        <div>{{ getShortWeekday(visit.startDate.date) }}</div>
+        <div mb-1 class="headline">{{ getNumericDay(visit.startDate) }}</div>
+        <div>{{ getShortWeekday(visit.startDate) }}</div>
       </v-flex>
       <visit
         :details="visit"
+        :profile="profile"
         :key="`visit-${visit.id}`"
         @focus="focusedTimetable = visit.id"
         :focus="focusedTimetable === visit.id"
@@ -37,8 +38,8 @@ export default {
 
   data() {
     return {
-      timetables: [],
-      profiles: [],
+      timetable: [],
+      profile: [],
       focusedTimetable: null,
     };
   },
@@ -46,8 +47,8 @@ export default {
     ...DateParser,
   },
   async created() {
-    this.timetables = await Api.getTimetables();
-    this.profiles = await Api.getProfiles();
+    this.timetable = await Api.getTimetable(1);
+    this.profile = await Api.getProfile(1);
   },
 };
 </script>
