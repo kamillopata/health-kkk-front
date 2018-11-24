@@ -1,8 +1,5 @@
 {
   "agenda": {
     "no_offers": "Sorry, no scheduled visits :("
-  },
-  "visit": {
-    "period": "You should visit"
   }
 }

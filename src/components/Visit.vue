@@ -1,12 +1,17 @@
 <template>
-  <v-flex my-2>
+  <v-flex xs10 sm11 my-2>
     <v-card>
-      <v-card-title class="headline">{{ details.examination.name }}</v-card-title>
-      <v-card-text class="font-weight-light">
-        {{ $t('visit.period') }}
-        {{ details.duration }}
-      </v-card-text>
-      <v-card-text>{{ details.examination.description }}</v-card-text>
+      <v-card-title>
+        <div>
+          <div class="headline">
+            {{ details.examination.name }}
+          </div>
+          <div class="font-weight-light">
+            {{ details.duration }}
+          </div>
+        </div>
+      </v-card-title>
+      <v-card-text v-if="false">{{ details.examination.description }}</v-card-text>
       <v-card-actions>
         <v-btn flat icon><v-icon>event</v-icon></v-btn>
         <v-btn color="">Visited</v-btn>
