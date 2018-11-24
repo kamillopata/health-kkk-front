@@ -7,11 +7,11 @@
         {{ details.duration }}
       </v-card-text>
       <v-card-text>{{ details.examination.description }}</v-card-text>
-      <v-card-action>
-        <v-btn color="">Calendar</v-btn>
-        <v-btn color="">Done</v-btn>
-        <v-btn color="">Find place</v-btn>
-      </v-card-action>
+      <v-card-actions>
+        <v-btn flat icon><v-icon>event</v-icon></v-btn>
+        <v-btn color="">Visited</v-btn>
+        <v-btn color="primary">Find place</v-btn>
+      </v-card-actions>
     </v-card>
   </v-flex>
 </template>
