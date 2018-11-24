@@ -14,13 +14,17 @@
       <v-card-text v-if="false">{{ details.examination.description }}</v-card-text>
       <v-card-actions>
         <v-btn>{{ $t('visit.mark_as_dome') }}</v-btn>
-        <v-btn color="primary">{{ $t('visit.find_clinic') }}</v-btn>
+        <v-btn :href="searchClinic" target="_blank" color="primary">
+          {{ $t('visit.find_clinic') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
 
   name: 'Visit',
@@ -34,6 +38,15 @@ export default {
     return {
 
     };
+  },
+  computed: {
+    ...mapState([
+      'user',
+    ]),
+    searchClinic() {
+      const query = `${this.details.examination.name}+${this.user.city}`;
+      return `https://google.com/search?q=${encodeURIComponent(query)}`;
+    },
   },
 };
 </script>
