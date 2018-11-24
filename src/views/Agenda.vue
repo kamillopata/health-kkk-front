@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-layout wrap row>
     <h1 v-if="!timetable.length">Sorry, no scheduled visits :(</h1>
     <visit v-for="visit in timetable" :details="visit" :key="visit.id"/>
-  </div>
+  </v-layout>
 </template>
 
 <script>
