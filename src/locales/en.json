@@ -1,5 +1,9 @@
 {
   "agenda": {
     "no_offers": "Sorry, no scheduled visits :("
+  },
+  "visit": {
+    "mark_as_dome": "Visited",
+    "find_clinic": "Find Clinic"
   }
 }

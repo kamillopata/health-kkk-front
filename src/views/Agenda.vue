@@ -9,6 +9,12 @@
       </v-flex>
       <visit :details="visit" :key="`visit-${visit.id}`" />
     </template>
+
+    <v-fab-transition>
+      <v-btn color="error" fab fixed bottom right>
+        <v-icon>event</v-icon>
+      </v-btn>
+    </v-fab-transition>
   </v-layout>
 </template>
 

@@ -13,9 +13,8 @@
       </v-card-title>
       <v-card-text v-if="false">{{ details.examination.description }}</v-card-text>
       <v-card-actions>
-        <v-btn flat icon><v-icon>event</v-icon></v-btn>
-        <v-btn color="">Visited</v-btn>
-        <v-btn color="primary">Find place</v-btn>
+        <v-btn>{{ $t('visit.mark_as_dome') }}</v-btn>
+        <v-btn color="primary">{{ $t('visit.find_clinic') }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
