@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <h1>this will be a Main Page</h1>
-  </div>
+  <h2>Visit</h2>
 </template>
 
 <script>
 export default {
 
-  name: 'Home',
+  name: 'Visit',
 
   data() {
     return {
