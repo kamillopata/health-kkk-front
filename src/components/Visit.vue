@@ -13,22 +13,37 @@
         </div>
       </v-card-text>
       <v-card-actions v-show="focus">
-        <v-btn small>
-          <v-icon>event</v-icon>
-          {{ $t('visit.reschedule') }}
-        </v-btn>
+        <v-dialog v-model="rescheduling" width="500">
+          <v-btn slot="activator" small>
+            <v-icon>event</v-icon>
+            {{ $t('visit.reschedule') }}
+          </v-btn>
+
+          <v-card>
+            <v-card-text>
+              <v-date-picker v-model="details.startDate" :reactive="true" />
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" flat @click="reschedule">
+                {{ $t('visit.reschedule') }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
         <v-btn small>
           <v-icon>done</v-icon>
           {{ $t('visit.markAsDone') }}
         </v-btn>
       </v-card-actions>
       <v-card-actions>
-        <v-flex xs12 sm4 text-xs-right>
+        <v-spacer></v-spacer>
         <v-btn :href="searchClinic" target="_blank" color="primary">
           <v-icon>local_hospital</v-icon>
           {{ $t('visit.findClinic') }}
         </v-btn>
-        </v-flex>
       </v-card-actions>
     </v-card>
   </v-flex>
@@ -54,13 +69,19 @@ export default {
   },
   data() {
     return {
-
+      rescheduling: false,
     };
   },
   computed: {
     searchClinic() {
       const query = `${this.details.examination.name} ${this.profile.city}`;
       return `https://google.com/search?q=${encodeURIComponent(query)}`;
+    },
+  },
+  methods: {
+    reschedule() {
+      // TODO: make a query to update in db
+      this.rescheduling = false;
     },
   },
 };
