@@ -9,7 +9,7 @@
       </v-flex>
       <visit
         :details="visit"
-        :profile="profile"
+        :profile="profiles[activeProfile]"
         :key="`visit-${visit.id}`"
         @focus="focusedTimetable = visit.id"
         :focus="focusedTimetable === visit.id"
@@ -39,16 +39,26 @@ export default {
   data() {
     return {
       timetable: [],
-      profile: [],
+      profiles: [],
       focusedTimetable: null,
+      activeProfile: 0,
     };
   },
   methods: {
     ...DateParser,
+    async fetchActiveProfile() {
+      const profileId = this.profiles[this.activeProfile].id;
+      this.timetable = await Api.getTimetable(profileId);
+    }
   },
   async created() {
-    this.timetable = await Api.getTimetable(1);
-    this.profile = await Api.getProfile(1);
+    this.profiles = await Api.getProfiles();
+    this.fetchActiveProfile();
+  },
+  watcher: {
+    activeProfile() {
+      fetchActiveProfile();
+    },
   },
 };
 </script>
