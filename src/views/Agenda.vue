@@ -30,7 +30,7 @@
         </template>
 
         <v-fab-transition>
-          <v-btn color="error" fab fixed top right>
+          <v-btn dark color="#ea0a8c" fab fixed top right>
             <v-icon>event</v-icon>
           </v-btn>
         </v-fab-transition>
@@ -42,10 +42,10 @@
     <br>
     <br>
 
-    <v-bottom-nav fixed :active.sync="activeProfile" :value="true">
+    <v-bottom-nav v-if="profiles.length" fixed :active.sync="activeProfile" :value="true">
       <v-btn
         v-for="(profile, index) in profiles"
-        color="teal"
+        color="#ea0a8c"
         flat
         :value="index"
         :key="profile.id"
@@ -54,7 +54,7 @@
         <v-icon>person</v-icon>
       </v-btn>
 
-      <!-- <v-btn color="teal" flat value="favorites">
+      <!-- <v-btn color="#ea0a8c" flat value="favorites">
         <span v-text="$t('agenda.addProfile')"></span>
         <v-icon>add_circle_outline</v-icon>
       </v-btn> -->
