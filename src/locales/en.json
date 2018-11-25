@@ -1,7 +1,16 @@
 {
   "login": {
+    "loginTitle": "Login Form",
     "username": "Username",
-    "password": "Password"
+    "password": "Password",
+    "loginCTA": "Login"
+  },
+  "register": {
+    "registerTitle": "Register Form",
+    "username": "Username",
+    "password": "Password",
+    "registerCTA": "Register",
+    "termsAndConditions": "I accept Terms & Conditions and our Privacy Policy"
   },
   "profile": {
     "title": "Please fill your info",

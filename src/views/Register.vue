@@ -3,7 +3,7 @@
     <v-card class="elevation-12">
       <v-toolbar dark color="primary">
         <v-toolbar-title>
-          {{ $t('login.loginTitle') }}
+          {{ $t('register.registerTitle') }}
         </v-toolbar-title>
       </v-toolbar>
       <v-card-text>
@@ -11,22 +11,27 @@
           <v-text-field
             prepend-icon="person"
             v-model="credentials.username"
-            :label="$t('login.username')"
+            :label="$t('register.username')"
             type="text"
           />
           <v-text-field
             prepend-icon="lock"
             v-model="credentials.password"
-            :label="$t('login.password')"
+            :label="$t('register.password')"
             type="password"
-            @keyup.enter="login"
+            @keyup.enter="register"
+          />
+          <v-checkbox
+            :label="$t('register.termsAndConditions')"
+            v-model="terms"
+            required
           />
         </v-form>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary" @click.enter="login">
-          {{ $t('login.loginCTA') }}
+        <v-btn color="primary" @click.enter="register">
+          {{ $t('register.registerCTA') }}
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -39,7 +44,7 @@ import Router from '../router';
 
 export default {
 
-  name: 'Login',
+  name: 'Register',
 
   data() {
     return {
@@ -47,17 +52,27 @@ export default {
         username: '',
         password: '',
       },
+      terms: false,
     };
   },
   methods: {
-    async login() {
-      const token = await Api.login(this.credentials);
+    async register() {
+      const token = await Api.register(this.credentials);
       if (!token) {
         return;
       }
 
       this.$store.dispatch('updateToken', token);
-      Router.push({ name: 'agenda' });
+
+      const profiles = await Api.getProfiles();
+
+      Router.push({
+        name: 'profile-specific',
+        params: {
+          profileId: profiles[0].id,
+          scope: 'basic',
+        },
+      });
     },
   },
 };

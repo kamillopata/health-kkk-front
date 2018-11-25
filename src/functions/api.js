@@ -54,4 +54,8 @@ export default {
     const response = await post('login', credentials);
     return response.token;
   },
+  async register(credentials) {
+    const response = await post('register', credentials);
+    return response.token;
+  },
 };
