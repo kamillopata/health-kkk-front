@@ -1,8 +1,8 @@
 {
   "home": {
-    "title": "Hello User",
-    "subtitle": "Control your fear",
-    "CTA": "Get Started"
+    "title": "Howdy!",
+    "subtitle": "Howdy!",
+    "CTA": "Set your calendar"
   },
   "login": {
     "loginTitle": "Login Form",
@@ -41,6 +41,7 @@
     "addProfile": "Add Profile"
   },
   "visit": {
+    "reschedule": "Reschedule",
     "markAsDone": "Visited",
     "findClinic": "Find Clinic"
   }
