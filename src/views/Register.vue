@@ -66,14 +66,8 @@ export default {
 
       this.$store.dispatch('updateToken', token);
 
-      const profiles = await Api.getProfiles();
-
       Router.push({
-        name: 'profile-specific',
-        params: {
-          profileId: profiles[0].id,
-          scope: 'basic',
-        },
+        name: 'profile',
       });
     },
   },

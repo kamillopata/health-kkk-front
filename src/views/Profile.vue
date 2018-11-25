@@ -36,8 +36,9 @@ export default {
   name: 'Profile',
   props: {
     profileId: {
-      required: true,
+      required: false,
       type: String,
+      default: null,
     },
     scope: {
       required: false,
@@ -48,16 +49,40 @@ export default {
   },
   data() {
     return {
-      profile: {},
+      profile: {
+        name: '',
+        age: '',
+        sex: '',
+        country: 'PL',
+        city: '',
+        diabets: false,
+        diet: false,
+        disability: false,
+        allergy: false,
+        cancerInFamily: false,
+        jobType: false,
+        sportActivity: false,
+      },
     };
   },
   methods: {
-    save() {
-      Api.patchProfile(this.profile);
+    async save() {
+      if (this.profileExists) {
+        Api.patchProfile(this.profile);
+      } else {
+        this.profileId = await Api.postProfile(this.profile);
+      }
+    },
+  },
+  computed: {
+    profileExists() {
+      return this.profileId !== '_';
     },
   },
   async created() {
-    this.profile = await Api.getProfile(this.profileId);
+    if (this.profileExists) {
+      this.profile = await Api.getProfile(this.profileId);
+    }
   },
 };
 </script>
