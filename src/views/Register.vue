@@ -67,7 +67,11 @@ export default {
       this.$store.dispatch('updateToken', token);
 
       Router.push({
-        name: 'profile',
+        name: 'profile-specific',
+        params: {
+          profileId: '_',
+          scope: 'basic',
+        },
       });
     },
   },
