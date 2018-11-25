@@ -10,6 +10,13 @@
     "male": "Male",
     "female": "Female",
     "city": "City",
+    "diabets":"Diabetic",
+    "diet":"Diet (vegan, vege, etc.)",
+    "disability":"Disability",
+    "allergy":"Allergies",
+    "cancerInFamily":"Cancer in family",
+    "jobType":"Desk Job",
+    "sportActivity":"Sport (at least 3 times a week)",
     "save": "Save"
   },
   "agenda": {

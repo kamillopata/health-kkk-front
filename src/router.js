@@ -36,7 +36,7 @@ export default new Router({
           props: true,
           component: () => import('./views/Profile.vue'),
         },
-      ]
+      ],
     },
   ],
 });

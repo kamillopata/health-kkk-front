@@ -11,6 +11,13 @@
       <v-text-field v-model="profile.city" :label="$t('profile.city')" required />
     </v-flex>
     <v-flex xs12 v-if="scope !== 'basic'">
+      <v-switch :label="$t('profile.diabets')" v-model="profile.diabets" />
+      <v-switch :label="$t('profile.diet')" v-model="profile.diet" />
+      <v-switch :label="$t('profile.disability')" v-model="profile.disability" />
+      <v-switch :label="$t('profile.allergy')" v-model="profile.allergy" />
+      <v-switch :label="$t('profile.cancerInFamily')" v-model="profile.cancerInFamily" />
+      <v-switch :label="$t('profile.jobType')" v-model="profile.jobType" />
+      <v-switch :label="$t('profile.sportActivity')" v-model="profile.sportActivity" />
     </v-flex>
     <v-flex xs12>
       <v-btn @click="save" color="info">{{ $t('profile.save') }}</v-btn>
