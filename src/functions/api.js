@@ -39,6 +39,7 @@ export default {
     return result.profile;
   },
   async postProfile(data) {
+    data.age = Number.parseInt(data.age);
     const result = await post('profiles', data);
     return result.profiles;
   },

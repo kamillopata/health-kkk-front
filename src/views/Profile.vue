@@ -30,6 +30,7 @@
 
 <script>
 import Api from '../functions/api';
+import Router from '../router';
 
 export default {
 
@@ -37,7 +38,7 @@ export default {
   props: {
     profileId: {
       required: false,
-      type: String,
+      // type: String, // TODO: problem number/string
       default: null,
     },
     scope: {
@@ -72,6 +73,10 @@ export default {
       } else {
         this.profileId = await Api.postProfile(this.profile);
       }
+
+      Router.push({
+        name: 'agenda',
+      });
     },
   },
   computed: {
