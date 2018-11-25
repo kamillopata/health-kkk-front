@@ -55,10 +55,10 @@
         <v-icon>person</v-icon>
       </v-btn>
 
-      <!-- <v-btn color="#ea0a8c" flat value="favorites">
+      <v-btn color="#ea0a8c" flat value="favorites" @click="addProfile">
         <span v-text="$t('agenda.addProfile')"></span>
         <v-icon>add_circle_outline</v-icon>
-      </v-btn> -->
+      </v-btn>
     </v-bottom-nav>
   </div>
 </template>
@@ -67,6 +67,7 @@
 import Visit from '../components/Visit.vue';
 import Api from '../functions/api';
 import DateParser from '../functions/DateParser';
+import Router from '../router';
 
 export default {
 
@@ -115,6 +116,15 @@ export default {
     ...DateParser,
     async fetchActiveProfile() {
       this.timetable = await Api.getTimetable(this.activeProfileId);
+    },
+    addProfile() {
+      Router.push({
+        name: 'profile-specific',
+        params: {
+          profileId: '_',
+          scope: 'basic',
+        },
+      });
     },
   },
   async created() {
