@@ -35,7 +35,7 @@
     "save": "Save"
   },
   "agenda": {
-    "noOffers": "Sorry, no scheduled visits :(",
+    "noOffers": "Sorry, no scheduled visits",
     "updateProfile": "Get more detailed harmonogram",
     "updateProfileCTA": "Update Profile",
     "addProfile": "Add Profile"

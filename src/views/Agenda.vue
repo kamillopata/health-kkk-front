@@ -30,12 +30,17 @@
         </template>
 
         <v-fab-transition>
-          <v-btn color="error" fab fixed bottom right>
+          <v-btn color="error" fab fixed top right>
             <v-icon>event</v-icon>
           </v-btn>
         </v-fab-transition>
       </v-layout>
     </v-container>
+
+    <br>
+    <br>
+    <br>
+    <br>
 
     <v-bottom-nav fixed :active.sync="activeProfile" :value="true">
       <v-btn
