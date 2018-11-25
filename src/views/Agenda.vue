@@ -2,6 +2,17 @@
   <v-layout wrap row>
     <h1 v-if="!timetable.length" v-text="$t('agenda.noOffers')"></h1>
 
+    <v-flex xs12>
+      <v-alert :value="true" type="info">
+        {{ $t('agenda.updateProfile') }}
+        <router-link :to="profileAdvanced">
+          <v-btn color="warning">
+            {{ $t('agenda.updateProfileCTA') }}
+          </v-btn>
+        </router-link>
+      </v-alert>
+    </v-flex>
+
     <template v-for="visit in timetable">
       <v-flex xs2 sm1 my-3 :key="`date-${visit.id}`">
         <div mb-1 class="headline">{{ getNumericDay(visit.startDate) }}</div>
@@ -44,12 +55,25 @@ export default {
       activeProfile: 0,
     };
   },
+  computed: {
+    activeProfileId() {
+      return this.profiles[this.activeProfile].id;
+    },
+    profileAdvanced() {
+      return {
+        name: 'profile-specific',
+        params: {
+          profileId: this.activeProfileId,
+          scope: 'advanced',
+        },
+      };
+    },
+  },
   methods: {
     ...DateParser,
     async fetchActiveProfile() {
-      const profileId = this.profiles[this.activeProfile].id;
-      this.timetable = await Api.getTimetable(profileId);
-    }
+      this.timetable = await Api.getTimetable(this.activeProfileId);
+    },
   },
   async created() {
     this.profiles = await Api.getProfiles();
@@ -57,7 +81,7 @@ export default {
   },
   watcher: {
     activeProfile() {
-      fetchActiveProfile();
+      this.fetchActiveProfile();
     },
   },
 };
