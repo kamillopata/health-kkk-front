@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout wrap row>
-      <h1 v-text="$t('profile.title', { msg: profile.name })" class="heading mb-3"></h1>
+      <h1 v-text="$t('profile.title')" class="heading mb-3"></h1>
       <v-flex xs12 v-if="scope !== 'advanced'">
         <v-text-field v-model="profile.name" :label="$t('profile.name')" required />
         <v-text-field v-model="profile.age" :label="$t('profile.yearOfBirth')" required />

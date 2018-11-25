@@ -1,8 +1,8 @@
 {
   "home": {
-    "title": "Howdy!",
-    "subtitle": "Howdy!",
-    "CTA": "Set your calendar"
+    "title": "Take control over your helf with HealthCalendar",
+    "subtitle": "Your preventive examinations calendar",
+    "CTA": "I wanna live longer!"
   },
   "login": {
     "loginTitle": "Login Form",
@@ -18,7 +18,7 @@
     "termsAndConditions": "I accept Terms & Conditions and our Privacy Policy"
   },
   "profile": {
-    "title": "Please fill info for {name}",
+    "title": "Your profile",
     "name": "Name",
     "yearOfBirth": "Year of birth",
     "sex": "Sex",

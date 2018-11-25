@@ -14,6 +14,11 @@ export default {
       weekday: 'short',
     });
   },
+  getShortMonth(stringDate) {
+    return this.getLocalDate(stringDate, {
+      month: 'short',
+    });
+  },
   getLocalDate(stringDate, options) {
     const date = this.parseDate(stringDate);
     return date.toLocaleDateString('en-GB', options);

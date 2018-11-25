@@ -18,6 +18,7 @@
         <template v-for="visit in timetable">
           <v-flex xs2 sm1 my-3 :key="`date-${visit.id}`">
             <div mb-1 class="headline">{{ getNumericDay(visit.startDate) }}</div>
+            <div>{{ getShortMonth(visit.startDate) }}</div>
             <div>{{ getShortWeekday(visit.startDate) }}</div>
           </v-flex>
           <visit
