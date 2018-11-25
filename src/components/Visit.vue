@@ -45,7 +45,7 @@
       </v-card-actions>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn dark :href="searchClinic" target="_blank" color="#ea0a8c">
+        <v-btn dark :href="searchClinic" target="_blank" color="primary">
           <v-icon>local_hospital</v-icon>
           {{ $t('visit.findClinic') }}
         </v-btn>
