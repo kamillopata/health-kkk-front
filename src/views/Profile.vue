@@ -22,7 +22,7 @@
         <v-switch :label="$t('profile.sportActivity')" v-model="profile.sportActivity" />
       </v-flex>
       <v-flex xs12>
-        <v-btn @click="save" color="info">{{ $t('profile.save') }}</v-btn>
+        <v-btn @click="save" dark color="#ea0a8c">{{ $t('profile.save') }}</v-btn>
       </v-flex>
     </v-layout>
   </v-container>

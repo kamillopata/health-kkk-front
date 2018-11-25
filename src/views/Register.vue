@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-flex xs12 sm8 md4 mt-5>
       <v-card class="elevation-12">
-        <v-toolbar dark color="primary">
+        <v-toolbar dark color="#ea0a8c">
           <v-toolbar-title>
             {{ $t('register.registerTitle') }}
           </v-toolbar-title>
@@ -31,7 +31,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" @click.enter="register">
+          <v-btn dark color="#ea0a8c" @click.enter="register">
             {{ $t('register.registerCTA') }}
           </v-btn>
         </v-card-actions>

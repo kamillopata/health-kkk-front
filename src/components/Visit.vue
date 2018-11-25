@@ -21,12 +21,17 @@
 
           <v-card>
             <v-card-text>
-              <v-date-picker v-model="details.startDate" :reactive="true" />
+              <v-date-picker
+                v-model="details.startDate"
+                :reactive="true"
+                color="#ea0a8c"
+                header-color="#ea0a8c"
+              />
             </v-card-text>
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" flat @click="reschedule">
+              <v-btn color="#ea0a8c" flat @click="reschedule">
                 {{ $t('visit.reschedule') }}
               </v-btn>
             </v-card-actions>
@@ -40,7 +45,7 @@
       </v-card-actions>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn :href="searchClinic" target="_blank" color="primary">
+        <v-btn dark :href="searchClinic" target="_blank" color="#ea0a8c">
           <v-icon>local_hospital</v-icon>
           {{ $t('visit.findClinic') }}
         </v-btn>
