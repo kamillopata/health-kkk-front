@@ -1,6 +1,6 @@
 <template>
   <v-layout wrap row>
-    <h1 v-if="!timetable.length" v-text="$t('agenda.no_offers')"></h1>
+    <h1 v-if="!timetable.length" v-text="$t('agenda.noOffers')"></h1>
 
     <template v-for="visit in timetable">
       <v-flex xs2 sm1 my-3 :key="`date-${visit.id}`">

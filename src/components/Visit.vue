@@ -14,9 +14,9 @@
       </v-card-text>
       <v-card-actions>
         <v-btn :icon="true"><v-icon>event</v-icon></v-btn>
-        <v-btn>{{ $t('visit.mark_as_dome') }}</v-btn>
+        <v-btn>{{ $t('visit.markAsDone') }}</v-btn>
         <v-btn :href="searchClinic" target="_blank" color="primary">
-          {{ $t('visit.find_clinic') }}
+          {{ $t('visit.findClinic') }}
         </v-btn>
       </v-card-actions>
     </v-card>

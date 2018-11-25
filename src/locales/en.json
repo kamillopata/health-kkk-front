@@ -5,7 +5,7 @@
   },
   "profile": {
     "title": "Please fill your info",
-    "year_of_birth": "Year of birth",
+    "yearOfBirth": "Year of birth",
     "sex": "Sex",
     "male": "Male",
     "female": "Female",
@@ -13,10 +13,10 @@
     "save": "Save"
   },
   "agenda": {
-    "no_offers": "Sorry, no scheduled visits :("
+    "noOffers": "Sorry, no scheduled visits :("
   },
   "visit": {
-    "mark_as_dome": "Visited",
-    "find_clinic": "Find Clinic"
+    "markAsDone": "Visited",
+    "findClinic": "Find Clinic"
   }
 }

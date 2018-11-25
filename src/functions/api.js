@@ -42,8 +42,8 @@ export default {
     const result = await post('profiles', data);
     return result.profiles;
   },
-  async patchProfile(profileId, data) {
-    const result = await patch(`profiles/${profileId}`, data);
+  async patchProfile(data) {
+    const result = await patch(`profiles/${data.id}`, data);
     return result.profiles;
   },
   async getExaminations() {

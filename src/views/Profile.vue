@@ -1,17 +1,20 @@
 <template>
   <v-layout wrap row>
     <h1 v-text="$t('profile.title')" class="heading mb-3"></h1>
-    <v-form>
-      <template>
-      <v-text-field v-model="profile.age" :label="$t('profile.year_of_birth')" required />
+    <v-flex xs12>
+      <v-text-field v-model="profile.age" :label="$t('profile.yearOfBirth')" required />
       <v-radio-group v-model="profile.sex">
         {{ $t('profile.sex') }}
         <v-radio :label="$t('profile.male')" value="m" />
         <v-radio :label="$t('profile.female')" value="f" />
       </v-radio-group>
       <v-text-field v-model="profile.city" :label="$t('profile.city')" required />
-      </template>
-    </v-form>
+    </v-flex>
+    <v-flex xs12>
+    </v-flex>
+    <v-flex xs12>
+      <v-btn @click="save" color="info">{{ $t('profile.save') }}</v-btn>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -31,6 +34,11 @@ export default {
     return {
       profile: {},
     };
+  },
+  methods: {
+    save() {
+      Api.patchProfile(this.profile);
+    },
   },
   async created() {
     this.profile = await Api.getProfile(this.profileId);
