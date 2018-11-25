@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-flex xs12>
-      <v-alert :value="true" type="info">
+      <v-alert v-if="!isProfileAdvanced" :value="true" type="info">
         {{ $t('agenda.updateProfile') }}
         <router-link :to="profileAdvanced">
           <v-btn color="warning">
@@ -84,6 +84,16 @@ export default {
       }
 
       return this.profiles[this.activeProfile].id;
+    },
+    isProfileAdvanced() {
+      if (!this.profiles.length) {
+        return null;
+      }
+
+      const profile = this.profiles[this.activeProfile];
+
+      // eslint-disable-next-line max-len
+      return profile.allergy || profile.cancerInFamily || profile.diabets || profile.diet || profile.disability || profile.jobType || profile.sportActivity;
     },
     profileAdvanced() {
       return {
