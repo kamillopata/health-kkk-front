@@ -1,12 +1,29 @@
+import Store from '../store';
+
 const rootUrl = 'http://195.62.13.129:8000/v1/';
 
-const get = async (path, params) => {
-  const result = await fetch(`${rootUrl}${path}`, params);
+const request = async (method, path, body) => {
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+  });
+
+  if (Store.state.token) {
+    headers.append('Authorization', `Bearer ${Store.state.token}`);
+  }
+
+  const init = {
+    method,
+    body: JSON.stringify(body),
+    headers,
+  };
+
+  const result = await fetch(`${rootUrl}${path}`, init);
   return result.json();
 };
 
-const post = () => {};
-const patch = () => {};
+const get = async (path, body) => request('GET', path, body);
+const post = async (path, body) => request('POST', path, body);
+const patch = async (path, body) => request('PATCH', path, body);
 
 export default {
   async getTimetable(timetableId) {
@@ -32,5 +49,9 @@ export default {
   async getExaminations() {
     const result = await get('examinations');
     return result.examinations;
+  },
+  async login(credentials) {
+    const response = await post('login', credentials);
+    return response.token;
   },
 };

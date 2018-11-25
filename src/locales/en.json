@@ -1,4 +1,17 @@
 {
+  "login": {
+    "username": "Username",
+    "password": "Password"
+  },
+  "profile": {
+    "title": "Please fill your info",
+    "year_of_birth": "Year of birth",
+    "sex": "Sex",
+    "male": "Male",
+    "female": "Female",
+    "city": "City",
+    "save": "Save"
+  },
   "agenda": {
     "no_offers": "Sorry, no scheduled visits :("
   },
