@@ -30,11 +30,11 @@
           />
         </template>
 
-        <v-fab-transition>
+        <!-- <v-fab-transition>
           <v-btn dark color="#ea0a8c" fab fixed top right>
             <v-icon>event</v-icon>
           </v-btn>
-        </v-fab-transition>
+        </v-fab-transition> -->
       </v-layout>
     </v-container>
 
