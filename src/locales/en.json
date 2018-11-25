@@ -1,4 +1,9 @@
 {
+  "home": {
+    "title": "Hello User",
+    "subtitle": "Control your fear",
+    "CTA": "Get Started"
+  },
   "login": {
     "loginTitle": "Login Form",
     "username": "Username",
