@@ -29,6 +29,14 @@ export default new Router({
       name: 'profile',
       props: true,
       component: () => import('./views/Profile.vue'),
+      children: [
+        {
+          path: ':scope',
+          name: 'profile-specific',
+          props: true,
+          component: () => import('./views/Profile.vue'),
+        },
+      ]
     },
   ],
 });

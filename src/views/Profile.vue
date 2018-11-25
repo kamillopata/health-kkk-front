@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap row>
     <h1 v-text="$t('profile.title')" class="heading mb-3"></h1>
-    <v-flex xs12>
+    <v-flex xs12 v-if="scope !== 'advanced'">
       <v-text-field v-model="profile.age" :label="$t('profile.yearOfBirth')" required />
       <v-radio-group v-model="profile.sex">
         {{ $t('profile.sex') }}
@@ -10,7 +10,7 @@
       </v-radio-group>
       <v-text-field v-model="profile.city" :label="$t('profile.city')" required />
     </v-flex>
-    <v-flex xs12>
+    <v-flex xs12 v-if="scope !== 'basic'">
     </v-flex>
     <v-flex xs12>
       <v-btn @click="save" color="info">{{ $t('profile.save') }}</v-btn>
@@ -28,6 +28,12 @@ export default {
     profileId: {
       required: true,
       type: String,
+    },
+    scope: {
+      required: false,
+      type: String,
+      default: '',
+      validator: val => ['', 'basic', 'advanced'].includes(val),
     },
   },
   data() {
