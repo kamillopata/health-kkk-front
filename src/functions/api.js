@@ -39,7 +39,8 @@ export default {
     return result.profile;
   },
   async postProfile(data) {
-    data.age = Number.parseInt(data.age);
+    // eslint-disable-next-line no-param-reassign
+    data.age = Number.parseInt(data.age, 10);
     const result = await post('profiles', data);
     return result.profiles;
   },
