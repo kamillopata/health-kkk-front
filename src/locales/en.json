@@ -18,7 +18,8 @@
     "termsAndConditions": "I accept Terms & Conditions and our Privacy Policy"
   },
   "profile": {
-    "title": "Please fill your info",
+    "title": "Please fill info for {name}",
+    "name": "Name",
     "yearOfBirth": "Year of birth",
     "sex": "Sex",
     "male": "Male",
@@ -36,7 +37,8 @@
   "agenda": {
     "noOffers": "Sorry, no scheduled visits :(",
     "updateProfile": "Get more detailed harmonogram",
-    "updateProfileCTA": "Update Profile"
+    "updateProfileCTA": "Update Profile",
+    "addProfile": "Add Profile"
   },
   "visit": {
     "markAsDone": "Visited",

@@ -36,6 +36,24 @@
         </v-fab-transition>
       </v-layout>
     </v-container>
+
+    <v-bottom-nav fixed :active.sync="activeProfile" :value="true">
+      <v-btn
+        v-for="(profile, index) in profiles"
+        color="teal"
+        flat
+        :value="index"
+        :key="profile.id"
+      >
+        <span v-text="profile.name || profile.age"></span>
+        <v-icon>person</v-icon>
+      </v-btn>
+
+      <!-- <v-btn color="teal" flat value="favorites">
+        <span v-text="$t('agenda.addProfile')"></span>
+        <v-icon>add_circle_outline</v-icon>
+      </v-btn> -->
+    </v-bottom-nav>
   </div>
 </template>
 
@@ -87,7 +105,7 @@ export default {
     this.profiles = await Api.getProfiles();
     this.fetchActiveProfile();
   },
-  watcher: {
+  watch: {
     activeProfile() {
       this.fetchActiveProfile();
     },
