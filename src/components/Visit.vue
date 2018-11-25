@@ -88,7 +88,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .text-truncate {
-    transition: height 3s ease-in;
-  }
 </style>
