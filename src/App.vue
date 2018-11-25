@@ -3,9 +3,7 @@
     <v-navigation-drawer app />
     <v-toolbar app />
     <v-content>
-      <v-container fluid>
-        <router-view />
-      </v-container>
+      <router-view />
     </v-content>
   </v-app>
 </template>

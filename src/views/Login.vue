@@ -1,36 +1,38 @@
 <template>
-  <v-flex xs12 sm8 md4 mt-5>
-    <v-card class="elevation-12">
-      <v-toolbar dark color="primary">
-        <v-toolbar-title>
-          {{ $t('login.loginTitle') }}
-        </v-toolbar-title>
-      </v-toolbar>
-      <v-card-text>
-        <v-form>
-          <v-text-field
-            prepend-icon="person"
-            v-model="credentials.username"
-            :label="$t('login.username')"
-            type="text"
-          />
-          <v-text-field
-            prepend-icon="lock"
-            v-model="credentials.password"
-            :label="$t('login.password')"
-            type="password"
-            @keyup.enter="login"
-          />
-        </v-form>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" @click.enter="login">
-          {{ $t('login.loginCTA') }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-flex>
+  <v-container fluid>
+    <v-flex xs12 sm8 md4 mt-5>
+      <v-card class="elevation-12">
+        <v-toolbar dark color="primary">
+          <v-toolbar-title>
+            {{ $t('login.loginTitle') }}
+          </v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+          <v-form>
+            <v-text-field
+              prepend-icon="person"
+              v-model="credentials.username"
+              :label="$t('login.username')"
+              type="text"
+            />
+            <v-text-field
+              prepend-icon="lock"
+              v-model="credentials.password"
+              :label="$t('login.password')"
+              type="password"
+              @keyup.enter="login"
+            />
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" @click.enter="login">
+            {{ $t('login.loginCTA') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-container>
 </template>
 
 <script>
