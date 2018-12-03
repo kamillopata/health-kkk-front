@@ -1,5 +1,9 @@
 # health-kkk-front
 
+## todo:
+1. handle other screens than mobile
+2. handle exceptions and rainy day scenarios
+
 ## Project setup
 ```
 npm install
